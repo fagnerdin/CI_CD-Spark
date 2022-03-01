@@ -71,7 +71,7 @@ http://localhost:9093/
 
 # Alocação de recursos 
 
-Este clustercontêm três trabalhadores e um spark master, cada um deles tem um conjunto específico de alocação de recursos (basicamente alocação de núcleos de RAM e CPU).
+Este cluster contêm três trabalhadores e um spark master, cada um deles tem um conjunto específico de alocação de recursos (basicamente alocação de núcleos de RAM e CPU).
 
 * A alocação de núcleos de CPU padrão para cada trabalhador spark é 1 núcleo.
 
@@ -98,13 +98,14 @@ data|/opt/spark-data| Usado para disponibilizar os dados de saída da aplicaçã
 
 ## Base de dados fictícia e aleatória
 
-Para subir a base de dados para o Banco de Dados MySQL, basta copiar os dados para dentro do container ...
+Como o Github tem uma limitação de upload de arquivos, eu decidi compactar a base.
+Basta descompactar o arquivo (com o descompactador de sua preferência) e subir a base de dados para o container de Banco de Dados MySQL, conforme o comando abaixo:
 
 ```sh
 docker cp base_ficticia/sistema-banco.sql ci_cd-spark-demo-mysql-1:/tmp
 ```
 
-... e executar o comando de upload do arquivo no Banco de Dados.
+Para fazer o upload do arquivo na base, basta rodar o comando abaixo:
 
 ```sh
 docker exec -i ci_cd-spark-demo-mysql-1 /bin/bash -c "cd /tmp && mysql -h 192.168.0.21 -uroot -pfagner_correa < sistema-banco.sql"
@@ -122,18 +123,18 @@ docker exec -i ci_cd-spark-spark-master-1 /bin/bash -c "/opt/spark/bin/spark-sub
 
 ## Observações
 
-### Porquê optei por este design:
+### O porquê optei por este design:
 
-* Optei por spark standalone por seu modelo decomputação distribuída e pela praticidade em rodar em um notebook/desktop, útil também para usar em pipelines de CI/CD;
-* Optei por MySQL porque é um banco de dados robusto (quando bem dimencionado), tem uma comunidade bem ativa e, entre os bancos de dados que eu ja trabalhei, é o que tenho maior experiencia;
+* Optei por spark standalone por seu modelo de computação distribuída e pela praticidade em rodar em um notebook/desktop, útil também para usar em pipelines de CI/CD;
+* Optei por MySQL porque é um banco de dados robusto (quando bem dimensionado), tem uma comunidade bem ativa e, entre os bancos de dados que eu ja trabalhei, é o que tenho maior experiencia;
 * Optei pelo Docker porque é uma arquitetura rápida de montar para uma infraestrutura de CI/CD e microsserviços, além de ser, também, a que possuo mais experiencia.	
 	
 ### o que faria se tivesse mais tempo para concluir este desafio:
 
-* Teria montado toda a IAC e CI/CD.
-* Teria Estruturado melhor o Banco de Dados para a consulta ficar mais rápida.
+* Teria automatizado mais, quem sabe montado toda a IAC (criação da máquina virtual, instalação dos recursos de máquina e execução da aplicação, etc.) e CI/CD (talvez com o Jenkins, com o qual eu ja trabalhei).
+* Teria Estruturado melhor o Banco de Dados para a consulta ficar mais rápida, é o que está tomando mais tempo no processo.
 	
 
 ### dificuldades que encontrou no desenvolvimento:
 
-* Demorei um pouco para gerar uma base fictícia concisa, esta base foi gerada com ajuda do site <a href="https://www.4devs.com.br/gerador_de_pessoas">4Devs</a>.
+* Demorei para gerar uma base fictícia concisa, esta base foi gerada com ajuda do site <a href="https://www.4devs.com.br/gerador_de_pessoas">4Devs</a>.
