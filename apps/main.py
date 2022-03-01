@@ -7,7 +7,7 @@ def init_spark():
     spark = SparkSession.builder \
     .master("spark://spark-master:7077").appName("Extrair_Banco").getOrCreate()
 
-    sicooperative_df = spark.read.format("jdbc").option("url", "jdbc:mysql://192.168.0.21:3306/sicooperative") \
+    sicooperative_df = spark.read.format("jdbc").option("url", "jdbc:mysql://localhost:3306/sicooperative") \
     .option("driver", "com.mysql.jdbc.Driver").option("dbtable", "movimento_flat") \
     .option("user", "root").option("password", "fagner_correa").load()
 
