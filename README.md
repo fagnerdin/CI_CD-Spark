@@ -108,7 +108,7 @@ docker cp base_ficticia/sistema-banco.sql ci_cd-spark-demo-mysql-1:/tmp
 Para fazer o upload do arquivo na base, basta rodar o comando abaixo:
 
 ```sh
-docker exec -i ci_cd-spark-demo-mysql-1 /bin/bash -c "cd /tmp && mysql -h 192.168.0.21 -uroot -pfagner_correa < sistema-banco.sql"
+docker exec -i ci_cd-spark-demo-mysql-1 /bin/bash -c "cd /tmp && mysql -h localhost -uroot -pfagner_correa < sistema-banco.sql"
 ```
 
 Para executar o aplicativo, conecte-se ao master executando:
