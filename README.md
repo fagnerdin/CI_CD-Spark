@@ -19,7 +19,7 @@ demo-mysql|3306
 
 As etapas a seguir farão com que você execute os contêineres do seu cluster Spark.
 
-## Pre requisites
+## Pre requisitos
 
 * Docker instalado
 
@@ -120,8 +120,20 @@ docker exec -i ci_cd-spark-spark-master-1 /bin/bash -c "/opt/spark/bin/spark-sub
 /opt/spark-apps/main.py"
 ```
 
-# Por que um cluster standalone?
+## Observações
 
-* Destinado para fins de teste, basicamente para executar aplicativos Spark distribuídos no laptop ou no desktop.
+### Porquê optei por este design:
 
-* Útil também para usar em pipelines de CI/CD e para seus aplicativos Spark.
+* Optei por spark standalone por seu modelo decomputação distribuída e pela praticidade em rodar em um notebook/desktop, útil também para usar em pipelines de CI/CD;
+* Optei por MySQL porque é um banco de dados robusto (quando bem dimencionado), tem uma comunidade bem ativa e, entre os bancos de dados que eu ja trabalhei, é o que tenho maior experiencia;
+* Optei pelo Docker porque é uma arquitetura rápida de montar para uma infraestrutura de CI/CD e microsserviços, além de ser, também, a que possuo mais experiencia.	
+	
+### o que faria se tivesse mais tempo para concluir este desafio:
+
+* Teria montado toda a IAC e CI/CD.
+* Teria Estruturado melhor o Banco de Dados para a consulta ficar mais rápida.
+	
+
+### dificuldades que encontrou no desenvolvimento:
+
+* Demorei um pouco para gerar uma base fictícia concisa, esta base foi gerada com ajuda do site <a href="https://www.4devs.com.br/gerador_de_pessoas">4Devs</a>.
