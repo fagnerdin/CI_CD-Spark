@@ -129,12 +129,12 @@ docker exec -i ci_cd-spark-spark-master-1 /bin/bash -c "/opt/spark/bin/spark-sub
 * Optei por MySQL porque é um banco de dados robusto (quando bem dimensionado), tem uma comunidade bem ativa e, entre os bancos de dados que eu ja trabalhei, é o que tenho maior experiencia;
 * Optei pelo Docker porque é uma arquitetura rápida de montar para uma infraestrutura de CI/CD e microsserviços, além de ser, também, a que possuo mais experiencia.	
 	
-### o que faria se tivesse mais tempo para concluir este desafio:
+### O que eu faria se tivesse mais tempo para este projeto:
 
 * Teria automatizado mais, quem sabe montado toda a IAC (criação da máquina virtual, instalação dos recursos de máquina e execução da aplicação, etc.) e CI/CD (talvez com o Jenkins, com o qual eu ja trabalhei).
 * Teria Estruturado melhor o Banco de Dados para a consulta ficar mais rápida, é o que está tomando mais tempo no processo.
 	
 
-### dificuldades que encontrou no desenvolvimento:
+### Dificuldades que encontrei no projeto:
 
 * Demorei para gerar uma base fictícia concisa, esta base foi gerada com ajuda do site <a href="https://www.4devs.com.br/gerador_de_pessoas">4Devs</a>.
