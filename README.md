@@ -77,7 +77,7 @@ Este cluster contêm três trabalhadores e um spark master, cada um deles tem um
 
 * A RAM padrão para cada spark-worker é de 2G.
 
-* A alocação de RAM padrão para executores de faísca é 2G.
+* A alocação de RAM padrão de 2G para os executores Spark.
 
 * A alocação de RAM padrão para o driver de ignição é de 2G
 
